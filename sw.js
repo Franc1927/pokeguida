@@ -1,6 +1,6 @@
 // Service worker: rende l'app utilizzabile offline.
 // Quando aggiorni i file, cambia VERSION per forzare il ricaricamento.
-const VERSION = 'v3';
+const VERSION = 'v5';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png',
   'data/rse.json', 'data/frlg.json', 'data/dppt.json', 'data/hgss.json', 'data/bw.json', 'data/b2w2.json'];
 

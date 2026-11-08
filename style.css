@@ -30,6 +30,8 @@ html, body { margin: 0; background: var(--bg); color: var(--text); font-family: 
 body { min-height: 100vh; overscroll-behavior-y: none; }
 button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
 img.px { image-rendering: pixelated; }
+/* gli elementi nascosti non devono mai coprire la pagina */
+[hidden] { display: none !important; }
 
 /* ---------------- Home ---------------- */
 .home { padding: calc(var(--safe-top) + 24px) 16px calc(var(--safe-bottom) + 24px); max-width: 720px; margin: 0 auto; }

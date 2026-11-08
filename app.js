@@ -60,6 +60,7 @@ function typePill(t, mini = false) {
 async function loadGame(id) {
   if (!cache[id]) {
     const res = await fetch(`data/${id}.json`);
+    if (!res.ok) throw new Error(`data/${id}.json: ${res.status}`);
     cache[id] = await res.json();
   }
   return cache[id];
@@ -100,7 +101,13 @@ async function renderGame(gameId) {
   if (state.game !== gameId || !state.data) {
     $app.innerHTML = `<div class="topbar" style="background:${g.bg}"><div class="topbar-row"><button class="back">‹</button><h2>${g.title}</h2></div></div><div class="loading">Caricamento Pokédex…</div>`;
     $app.querySelector('.back').onclick = () => { location.hash = ''; };
-    state.data = await loadGame(gameId);
+    try {
+      state.data = await loadGame(gameId);
+    } catch (err) {
+      $app.querySelector('.loading').innerHTML =
+        `⚠️ Non riesco a caricare i dati del gioco.<br><small>Manca il file <b>data/${gameId}.json</b> sul sito, oppure sei offline.</small>`;
+      return;
+    }
     state.game = gameId;
     const saved = store.get(`ed-${gameId}`);
     state.edition = state.data.editions.find(e => e.id === saved) || state.data.editions[state.data.editions.length - 1];
