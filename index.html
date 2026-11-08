@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pokéguida</title>
+<meta name="description" content="Guida rapida ai giochi Pokémon di 3ª, 4ª e 5ª generazione">
+<meta name="theme-color" content="#e3350d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pokéguida">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+
+<div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+<section id="sheet" class="sheet" aria-modal="true" role="dialog" hidden>
+  <div class="sheet-grab" id="sheet-grab"><span></span></div>
+  <button class="sheet-close" id="sheet-close" aria-label="Chiudi">✕</button>
+  <div class="sheet-body" id="sheet-body"></div>
+</section>
+
+<div id="rank-backdrop" class="rank-backdrop" hidden>
+  <section class="rank" role="dialog" aria-modal="true" aria-labelledby="rank-title">
+    <header class="rank-head">
+      <h3 id="rank-title">🏆 Top 20</h3>
+      <button class="rank-close" id="rank-close" aria-label="Chiudi">✕</button>
+    </header>
+    <div class="rank-stats" id="rank-stats"></div>
+    <div class="rank-sub" id="rank-sub"></div>
+    <div class="rank-list" id="rank-list"></div>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
